@@ -18,23 +18,50 @@ container.style.justifyContent = "space-between";
 container.style.alignContent = "space-between";
 container.style.border = '2px solid black'
 
+function generateBoxes(value) {
+    // First, clear the container
+    container.innerHTML = '';
 
-for (var i = 1; i < 17; i++) {
-    container.innerHTML += '<div class="box" id="' + i + '"></div>';
+    const totalBoxes = value * value;
+    const boxSize = 400 / value - 2;  // -2 to account for box border
+
+    for (var i = 0; i < totalBoxes; i++) {
+        let box = document.createElement("div");
+        box.classList.add("box");
+        box.id = "box-" + i;
+        box.style.backgroundColor = "white";
+        box.style.width = `${boxSize}px`;
+        box.style.height = `${boxSize}px`;
+        box.style.border = '1px solid black';
+        box.addEventListener("mouseenter", function() {
+            this.style.backgroundColor = "black";
+        });
+        
+        // // OPTIONAL: Revert style when the mouse leaves (hover ends)
+        // box.addEventListener("mouseleave", function() {
+        //     this.style.backgroundColor = "white";
+        // });
+
+        container.appendChild(box);
+    }
 }
 
-var boxes = container.querySelectorAll(".box");
 
-boxes.forEach(function (box) {
-    box.style.backgroundColor = "white";
-    box.style.width = "100px";
-    box.style.height = "100px";
-    box.addEventListener("mouseenter", function() {
-        this.style.backgroundColor = "black";
-    });
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
 
-    // OPTIONAL: If you want to revert the style when the mouse leaves (hover ends)
-    box.addEventListener("mouseleave", function() {
-        this.style.backgroundColor = "";  // Or set to any other default color
-    });
-});
+function updateDisplay(value) {
+    output.textContent = `${value} x ${value}`;
+}
+
+// Initial display
+updateDisplay(slider.value);
+generateBoxes(parseInt(slider.value));
+
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    updateDisplay(this.value);
+    generateBoxes(parseInt(this.value));
+} 
