@@ -40,3 +40,70 @@
     flex-direction: column;
     justify-content: space-evenly;
   }
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+}
+
+/* Existing styles */
+
+/* Styling the buttons */
+button {
+  background-color: gray;  /* This is just an example color; adjust to your preferred color. */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Adds a subtle shadow */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for the hover effect */
+}
+
+button:hover {
+  transform: translateY(-3px);  /* Slightly lifts the button on hover */
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.25), 0 10px 24px 0 rgba(0, 0, 0, 0.22);  /* Enhances the shadow on hover */
+}
+
+/* If you have any other buttons that you don't want to be affected by these styles, you might need to use more specific selectors or class names. */

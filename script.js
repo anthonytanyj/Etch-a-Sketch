@@ -46,6 +46,7 @@ document.querySelector(".Clear").addEventListener("click", function () {
     });
 });
 
+let currentColor = "black"
 
 function generateBoxes(value) {
     // First, clear the container
@@ -69,11 +70,11 @@ function generateBoxes(value) {
                 this.style.backgroundColor = "white";
             }
             else {
-                this.style.backgroundColor = "black";
+                this.style.backgroundColor = currentColor;
             }
         });
 
-
+        
         // // OPTIONAL: Revert style when the mouse leaves (hover ends)
         // box.addEventListener("mouseleave", function() {
         //     this.style.backgroundColor = "white";
@@ -102,3 +103,21 @@ slider.oninput = function () {
     updateDisplay(this.value);
     generateBoxes(parseInt(this.value));
 } 
+
+const modal = document.getElementById("colorPickerModal");
+const closeBtn = document.querySelector(".close");
+
+// When the user clicks the button, open the modal
+document.querySelector(".Color").addEventListener("click", function() {
+    modal.style.display = "block";
+});
+
+// When the user clicks on <span> (x), close the modal
+closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+// Update currentColor when a new color is selected from the color picker
+colorPicker.addEventListener("input", function(event) {
+    currentColor = event.target.value;
+});

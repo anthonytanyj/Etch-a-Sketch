@@ -9,18 +9,31 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="toggles">
-            <button class="'Color">Color Mode</button>
-            <button class="Rainbow">Rainbow Mode</button>
-            <button class="Eraser">Eraser</button>
-            <button class="Clear">Clear</button>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
-                <span id="demo"></span>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Etch-A-Sketch</h1>
         </div>
+        <div class="main">
+            <div class="toggles">
+                <button class="Color">Color Mode</button>
+                <div id="colorPickerModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <label for="colorPicker">Select Color:</label>
+                        <input type="color" id="colorPicker" value="#000000">
+                    </div>
+                </div>
 
+                <button class="Rainbow">Rainbow Mode</button>
+                <button class="Eraser">Eraser</button>
+                <button class="Clear">Clear</button>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
+                    <span id="demo"></span>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
